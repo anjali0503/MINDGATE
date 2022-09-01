@@ -1,0 +1,292 @@
+CREATE TABLE employee_details(
+        employee_id NUMBER(10),
+        first_name VARCHAR2(20),
+        last_name VARCHAR2(20),
+        age NUMBER(3),
+        gender VARCHAR2(6),
+        salary NUMBER(10,2),
+        date_of_birth DATE
+);
+
+
+INSERT INTO employee_details values(101,'Abjali','Pandey',22,'Female',100,'05-MAR-1998');
+INSERT INTO employee_details values(102,'ANjali1','Pandey1',22,'Female',100,'05-MAR-1998');
+INSERT INTO employee_details values(103,'Abjali2','Pandey2',22,'Female',100,'05-MAR-1998');
+INSERT INTO employee_details values(104,'Abjali3','Pandey3',22,'Female',100,'05-MAR-1998');
+INSERT INTO employee_details values(105,'Abjali4','Pandey4',22,'Female',100,'05-MAR-1998');
+INSERT INTO employee_details values(106,'Abjali5','Pandey5',22,'Female',100,'05-MAR-1998');
+
+
+SELECT * FROM employee_details;
+
+
+
+
+
+ALTER TABLE employee_details DROP COLUMN age;
+
+
+DESC employee_details;
+
+
+ALTER TABLE employee_details ADD(age NUMBER(3));
+
+ALTER TABLE employee_details MODIFY(age NUMBER(2));
+
+
+SELECT * FROM employee_details;
+
+
+DROP TABLE employee_details;
+
+
+
+
+
+
+------Primary key----------
+
+
+CREATE TABLE employee_details(
+        employee_id NUMBER(10) PRIMARY KEY,
+        first_name VARCHAR2(20),
+        last_name VARCHAR2(20),
+        age NUMBER(3),
+        gender VARCHAR2(6),
+        salary NUMBER(10,2),
+        date_of_birth DATE
+);
+
+
+INSERT INTO employee_details values(101,'Abjali','Pandey',22,'Female',100,'05-MAR-1998');
+INSERT INTO employee_details values(101,'Abjali','Pandey',22,'Female',100,'05-MAR-1998');
+
+INSERT INTO employee_details values(null,'Anjali','Pandey',22,'Female',100,'05-MAR-1998');
+
+
+DROP TABLE employee_details;
+
+
+
+CREATE TABLE employee_details(
+        employee_id NUMBER(10),
+        first_name VARCHAR2(20),
+        last_name VARCHAR2(20),
+        age NUMBER(3),
+        gender VARCHAR2(6),
+        salary NUMBER(10,2),
+        date_of_birth DATE,
+        CONSTRAINT employee_id_pk PRIMARY KEY (employee_id)
+);
+
+
+SELECT
+    * FROM 
+    user_constraints;
+    
+    
+    DROP table employee_details;
+    
+    
+    
+    
+    ---------------------Foreign key--------------------
+    
+    CREATE TABLE project_details(
+        project_id NUMBER(10),
+        TITLE VARCHAR2(50),
+        cost NUMBER(10,2),
+        client_name VARCHAR2(50),
+        CONSTRAINT project_id_pk PRIMARY KEY(project_id)
+    );
+    
+    
+    
+    CREATE TABLE employee_details(
+        employee_id NUMBER(10),
+        first_name VARCHAR2(20),
+        last_name VARCHAR2(20),
+        age NUMBER(3),
+        gender VARCHAR2(6),
+        salary NUMBER(10,2),
+        date_of_birth DATE,
+         project_id NUMBER(10),
+        CONSTRAINT employee_id_pk PRIMARY KEY (employee_id),
+        CONSTRAINT project_id_fk FOREIGN KEY(project_id) REFERENCES project_details(project_id)
+);
+
+
+-------------------insert data into project details---------------------------
+
+
+INSERT INTO project_details VALUES (1,'Gpay',10000,'Google');
+INSERT INTO project_details VALUES (2,'Phone Pay',5000,'Phone pay tech');
+
+
+----------------------------insert employee details------------------------
+
+INSERT INTO employee_details values(101,'Anjali','Pandey',22,'Female',100,'05-MAR-1998',1);
+INSERT INTO employee_details values(102,'ANjali1','Pandey1',22,'Female',100,'05-MAR-1998',2);
+INSERT INTO employee_details values(103,'Abjali2','Pandey2',22,'Female',100,'05-MAR-1998' ,1);
+INSERT INTO employee_details values(104,'Abjali3','Pandey3',22,'Female',100,'05-MAR-1998',2);
+INSERT INTO employee_details values(105,'Abjali4','Pandey4',22,'Female',100,'05-MAR-1998',1);
+INSERT INTO employee_details values(107,'Abjali5','Pandey5',22,'Female',100,'05-MAR-1998',3);
+
+
+DROP table employee_details;
+
+DROP table project_details;
+
+
+CREATE TABLE project_details(
+        project_id NUMBER(10),
+        TITLE VARCHAR2(50),
+        cost NUMBER(10,2),
+        client_name VARCHAR2(50),
+        CONSTRAINT project_id_pk PRIMARY KEY(project_id)
+    );
+    
+    
+    CREATE TABLE employee_details(
+        employee_id NUMBER(10),
+        first_name VARCHAR2(20),
+        last_name VARCHAR2(20),
+        age NUMBER(3),
+        gender VARCHAR2(6),
+        salary NUMBER(10,2),
+        date_of_birth DATE,
+         project_id NUMBER(10),
+        CONSTRAINT employee_id_pk PRIMARY KEY (employee_id),
+        CONSTRAINT project_id_fk FOREIGN KEY(project_id) REFERENCES project_details(project_id)
+);
+
+INSERT INTO project_details VALUES (1,'Gpay',10000,'Google');
+INSERT INTO project_details VALUES (2,'Phone Pay',5000,'Phone pay tech');
+
+
+INSERT INTO employee_details values(101,'Anjali','Pandey',22,'Female',100,'05-MAR-1998',1);
+INSERT INTO employee_details values(102,'ANjali1','Pandey1',22,'Female',100,'05-MAR-1998',2);
+INSERT INTO employee_details values(103,'Abjali2','Pandey2',22,'Female',100,'05-MAR-1998' ,1);
+INSERT INTO employee_details values(104,'Abjali3','Pandey3',22,'Female',100,'05-MAR-1998',2);
+INSERT INTO employee_details values(105,'Abjali4','Pandey4',22,'Female',100,'05-MAR-1998',1);
+INSERT INTO employee_details values(107,'Abjali5','Pandey5',22,'Female',100,'05-MAR-1998',3);
+
+DROP table project_details;
+
+
+
+DROP table employee_details;
+DROP table project_details;
+
+--------------------------check constraints----------------
+
+
+
+CREATE TABLE project_details(
+        project_id NUMBER(10),
+        TITLE VARCHAR2(50),
+        cost NUMBER(10,2),
+        client_name VARCHAR2(50),
+        CONSTRAINT project_id_pk PRIMARY KEY(project_id)
+    );
+
+CREATE TABLE employee_details(
+        employee_id NUMBER(10),
+        first_name VARCHAR2(20),
+        last_name VARCHAR2(20),
+        age NUMBER(3),
+        gender VARCHAR2(6),
+        salary NUMBER(10,2),
+        date_of_birth DATE,
+         project_id NUMBER(10),
+        CONSTRAINT employee_id_pk PRIMARY KEY (employee_id),
+        CONSTRAINT project_id_fk FOREIGN KEY(project_id) REFERENCES project_details(project_id),
+        CONSTRAINT age_ck  CHECK(age >= 18)
+);
+
+INSERT INTO employee_details values(101,'Anjali','Pandey',12,'Female',100,'05-MAR-1998',1);
+
+----------------------------------NOT NULL----
+
+DROP table employee_details;
+
+
+CREATE TABLE employee_details(
+        employee_id NUMBER(10),
+        first_name VARCHAR2(20)NOT NULL,
+        last_name VARCHAR2(20) NOT NULL,
+        age NUMBER(3)NOT NULL,
+        gender VARCHAR2(6)NOT NULL,
+        salary NUMBER(10,2)NOT NULL,
+        date_of_birth DATE NOT NULL,
+         project_id NUMBER(10) NOT NULL,
+        CONSTRAINT employee_id_pk PRIMARY KEY (employee_id),
+        CONSTRAINT project_id_fk FOREIGN KEY(project_id) REFERENCES project_details(project_id),
+        CONSTRAINT age_ck  CHECK(age >= 18)
+);
+
+
+INSERT INTO employee_details values(101,NULL,'Pandey',12,'Female',100,'05-MAR-1998',1);
+
+
+DROP table employee_details;
+-----------------------------UNIQUE----------------
+
+CREATE TABLE employee_details(
+        employee_id NUMBER(10),
+        first_name VARCHAR2(20)NOT NULL,
+        last_name VARCHAR2(20) NOT NULL,
+        age NUMBER(3)NOT NULL,
+        gender VARCHAR2(6)NOT NULL,
+        salary NUMBER(10,2)NOT NULL,
+        date_of_birth DATE NOT NULL,
+         project_id NUMBER(10) NOT NULL,
+         email VARCHAR(50) NOT NULL,
+        CONSTRAINT employee_id_pk PRIMARY KEY (employee_id),
+        CONSTRAINT project_id_fk FOREIGN KEY(project_id) REFERENCES project_details(project_id),
+        CONSTRAINT age_ck  CHECK(age >= 18),
+        CONSTRAINT email_uq UNIQUE(email)
+);
+
+INSERT INTO employee_details values(101,'Anjali','Pandey',22,'Female',100,'05-MAR-1998',1,'arp@gmail.com');
+INSERT INTO employee_details values(109,'Shivam','Tripathi',24,'Male',100,'05-MAR-1998',1,'arp21@gmail.com');
+
+
+
+SELECT * FROM project_details;
+INSERT INTO project_details VALUES (1,'Gpay',10000,'Google');
+INSERT INTO project_details VALUES (2,'Phone Pay',5000,'Phone pay tech');
+
+
+INSERT INTO employee_details values(101,'Anjali','Pandey',22,'Female',100,'05-MAR-1998',1,'arp@gmail.com');
+INSERT INTO employee_details values(109,'Shivam','Tripathi',24,'Male',100,'05-MAR-1998',1,'arp@gmail.com');
+
+
+
+----------------------------------Default--------------
+
+DROP table employee_details;
+
+CREATE TABLE employee_details(
+        employee_id NUMBER(10),
+        first_name VARCHAR2(20)NOT NULL,
+        last_name VARCHAR2(20) NOT NULL,
+        age NUMBER(3)NOT NULL,
+        gender VARCHAR2(6)NOT NULL,
+        salary NUMBER(10,2)NOT NULL,
+        date_of_birth DATE NOT NULL,
+         project_id NUMBER(10) NOT NULL,
+         email VARCHAR(50) NOT NULL,
+         city VARCHAR(20) DEFAULT 'MUMBAI',
+        CONSTRAINT employee_id_pk PRIMARY KEY (employee_id),
+        CONSTRAINT project_id_fk FOREIGN KEY(project_id) REFERENCES project_details(project_id),
+        CONSTRAINT age_ck  CHECK(age >= 18),
+        CONSTRAINT email_uq UNIQUE(email)
+);
+
+INSERT INTO employee_details (employee_id,first_name,last_name,age,gender,salary,date_of_birth,project_id,email)values(101,'Anjali','Pandey',22,'Female',100,'05-MAR-1998',1,'arp@gmail.com');
+
+SELECT * FROM employee_details;
+
+
+

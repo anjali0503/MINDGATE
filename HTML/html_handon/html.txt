@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML Training</title>
+</head>
+<body>
+        <br>
+        <h3 id="topofpage">Headings</h3>
+        <a href="#jumpdown">Jump down</a>
+        <br>
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+
+        <br>
+        <h3>Headings</h3>
+        <br>
+        <p>This is paragraph</p>
+        <p>This is another paragraph</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, excepturi, quisquam consequuntur aliquam reprehenderit deserunt non voluptatem modi officia soluta praesentium, eius doloremque harum placeat provident nobis dolore perspiciatis officiis.</p>
+
+        <br>
+        <h3>Horizontal Rule</h3>
+        <br>
+
+        <h1>This is my Heading</h1>
+        <p>This is my paragraph</p>
+        <hr>
+        <h1>This is my Heading</h1>
+        <p>This is my paragraph</p>
+
+        <br>
+        <h3>Line Breaks</h3>
+        <br>
+        <p>This is <br> Paragraph <br> with line breaks </p>
+
+
+        <br>
+        <h3>pre Tag</h3>
+        <br>
+
+        <pre>
+                Tuje Dekha to Jana Sanam
+                Pyaar Hota hai Dewana Saname
+        </pre>
+
+        <br>
+        <h3>HTML Styles : Background Color</h3>
+        <br>
+        <h1 style="background-color:powderblue;">This is Heading</h1>
+        <h1 style="background-color:tomato;">This is Paragraph</h1>
+
+        <br>
+        <h3>HTML Styles : Text Color</h3>
+        <br>
+        <h1 style="color:blue;">This is Heading</h1>
+        <h1 style="color:gold;">This is Paragraph</h1>
+        
+        <br>
+        <h3>HTML Styles : Fonts</h3>
+        <br>
+        <h1 style="font-family:Verdana;">This is Heading</h1>
+        <h1 style="font-family:'Courier New';">This is Paragraph</h1>
+        
+        <br>
+        <h3>HTML Styles : Text Size</h3>
+        <br>
+        <h1 style="font: size 300%;">This is Heading</h1>
+        <h1 style="font: size 200%;">This is Paragraph</h1>
+        <br>
+        <h3>HTML Styles : Text Align</h3>
+        <br>
+        <h1 style="text-align: center;">This is Heading</h1>
+        <h1 style="text-align: right;">This is Paragraph</h1>
+
+        
+        <h3>Text-formatting</h3>
+        <br>
+        <b>this text is bold</b>
+
+        <strong>this text is importent</strong>
+
+        <i>this is italic</i>
+        <em>this thext is emphasized</em>
+
+        <small>thsi is small text</small>
+        
+        <p>dont forget to buy <mark>milk</mark></p>
+
+        <p>my fav color is <del>blue</del><ins>Red</ins>.</p>\
+
+        <p>this is <sub>subscripted</sub>text</p>
+        <p>tis is <sup>superscripted</sup>text</p>
+
+        
+        <br>
+        <h3>Colors (use color picker)</h3>
+        <br>
+        <h1 style="background-color: rgb(0,0,255);">rgb(0,0,255)</h1>
+        <h1 style="background-color: rgb(0,255,0);">rgb(0,255,0)</h1>
+        <h1 style="background-color: rgb(255,0,0);">rgb(255,0,0)</h1>
+        <h1 style="background-color: rgb(255,255,255);">rgb(255,255,255)</h1>
+        <h1 style="background-color: rgb(0,0,0);">rgb(0,0,0)</h1>
+        <hr> 
+        <h1 style="background-color: #0000ff;">#0000ff</h1>
+        <h1 style="background-color: #00ff00;">#00ff00</h1>
+        <h1 style="background-color: #ff0000;">#ff0000</h1>
+        <h1 style="background-color: #ffffff;">#ffffff</h1>
+        <h1 style="background-color: #000000;">000000</h1>
+        
+
+        <br>
+        <h3 id="jumpdown">hyperLinks</h3>
+        <br>
+        <a href="https://www.google.com" target="_blank">Open google</a>
+        <a href="task.html">task 1</a><br>
+        <a href="https://www.google.com" target="_blank"><img src="images.png" alt="not found"></a> 
+        <button onclick="document.location='https://www.google.com'">submit</button><br>
+        <a href="#topofpage"> Jump to Top</a>
+
+        <br>
+        <h3>table</h3>
+        <br>
+        <table border="1px" style="width: 100%;">
+            <tr>
+                <th>Employee_Id</th>
+                <th>Name</th>
+                <th>Salary</th>
+            </tr>
+            <tr>
+                <td>101</td>
+                <td>Anjali</td>
+                <td>1000000</td>
+            </tr>
+            <tr>
+                <td>102</td>
+                <td>Anjali</td>
+                <td>1000000</td>
+            </tr>
+        </table>
+
+        <table border="1px" style="width: 100%;">
+            <tr>
+                <th>Name</th>
+                <th colspan="2">contact number</th>
+              
+            </tr>
+           <tr>
+                <td>Bill Gates</td>
+                <td>0987864557</td>
+                <td>3534657868</td>
+           </tr>
+        </table>
+
+        <table border="1px" style="width: 100%;">
+            <tr>
+                <th>Name</th>
+                <td>Bill Gates</td>
+              
+            </tr>
+           <tr>
+                <th rowspan="2">contact number</th>
+                
+                <td>3534657868</td>
+           </tr>
+
+           <tr>
+            <td>3534657868</td>
+            
+       </tr>
+        </table>
+
+
+
+
+      <!--  ------------------------------------------------------------------------------------------  -->
+
+<h1>task table</h1>
+
+
+<table border="1PX" style="width: 100%; background-color: aqua; color: red;">
+<tr>
+    <th colspan="4">STUDENT & EMPLOYEE DATA LIST</th>
+</tr>
+<tr>
+    <th colspan="2">STUDENT DATA</th>
+    <th colspan="2">EMPLOYEE DATA</th>
+</tr>
+<tr>
+    <th>NAME</th>
+    <th>CLASS</th>
+    <th>NAME</th>
+    <th>SALARY</th>
+</tr>
+<tr>
+
+    <td>RAVI</td>
+    <td>IX</td>
+    <td>SRINIVASA RAO</td>
+    <td rowspan="2">20,000</td>
+</tr>
+<tr>
+    <td>GANESH</td>
+    <td rowspan="2">VII</td>
+    <td>RAMA RAO</td>
+</tr>
+<tr>
+    <td>VIJAY</td>
+    <td>CHALAPATHI RAO</td>
+    <td>18,500</td>
+</tr>
+   
+
+</table>
+
+<br>
+        <h3>Ordered list</h3>
+        <br>
+        <ol>
+            <li>tea</li>
+            <li>coffee</li>
+            <li>milk</li>
+        </ol>
+        <br>
+        <h3>Unorderd list</h3>
+        <br>
+        <ul>
+            <li>tea</li>
+            <li>coffee</li>
+            <li>milk</li>
+        </ul>
+
+        <br>
+        <h3>Emojis</h3>
+        <br>
+
+        <p style="font-size: 48px;">&#128512;<br> &#128516;
+            <br>&#128525;
+            <br>&#128151;
+            <br>&#128540;
+            <br>&#x1F61C;
+        
+        
+        </p>
+
+        <br>
+        <h3>Forms</h3>
+        <br>
+
+        <form >
+            <label>first name</label>
+            <input type="text" name="fname"><br><br>
+            <label>last name</label>
+            <input type="text" name="lname"><br><br>
+            <label>Password</label>
+            <input type="password" name="userpassword"><br><br>
+            <label>Gender</label>
+            <input type="radio" name="gender" value="female">
+            <label>Female</label>
+            <input type="radio" name="gender" value="male">
+            <label>Male</label>
+            <br><br>
+            <label>Favorate Color</label>
+            <input type="color" name="favcolor">
+            <br><br>
+            <label>Birth Date</label>
+            <input type="date" name="birthday"><br><br>
+            <label>Birthday & Time</label>
+            <input type="datetime-local" name="birthdaytime"><br><br>
+            <label>email</label>
+            <input type="email" name="usermail"><br><br>
+            <label>Upload Resume</label>
+            <input type="file" name="resume">
+            <br><br>
+            
+            <label>Birthday Month</label>
+            <input type="month" name="birthdaymonth"><br>
+            <label>Quantity(1-5)</label>
+            <input type="number" name="quantity" min="1" max="5">
+            <br><br>
+            <label>Cars</label>
+            <select name="cars">
+                <option value="Nano">Tata NANO</option>
+                <option value="Maruti 800">Maroti 800</option>
+                <option value="Thar">Thar</option>
+                
+            </select><br><br>
+            <input type="submit" value="Save">
+        </form>
+
+        <br>
+        <h3>Multimedia controls</h3>
+        <br>
+<video controls>
+    <source src="movie.mp4" type="video/mp4">
+</video>
+<br> <br>
+
+<iframe width="420" height="315" src="https://www.youtube.com/watch?v=znbNiTkLDgw" ></iframe>
+
+    </body>
+</html>

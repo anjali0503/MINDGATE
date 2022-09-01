@@ -1,0 +1,639 @@
+CREATE TABLE employee_details(
+        employee_id NUMBER(10),
+        first_name VARCHAR2(20),
+        last_name VARCHAR2(20),
+        age NUMBER(3),
+        gender VARCHAR2(6),
+        salary NUMBER(10,2),
+        date_of_birth DATE
+);
+
+
+INSERT INTO employee_details values(101,'Abjali','Pandey',22,'Female',100,'05-MAR-1998');
+INSERT INTO employee_details values(102,'ANjali1','Pandey1',22,'Female',100,'05-MAR-1998');
+INSERT INTO employee_details values(103,'Abjali2','Pandey2',22,'Female',100,'05-MAR-1998');
+INSERT INTO employee_details values(104,'Abjali3','Pandey3',22,'Female',100,'05-MAR-1998');
+INSERT INTO employee_details values(105,'Abjali4','Pandey4',22,'Female',100,'05-MAR-1998');
+INSERT INTO employee_details values(106,'Abjali5','Pandey5',22,'Female',100,'05-MAR-1998');
+
+
+SELECT * FROM employee_details;
+
+
+
+
+
+ALTER TABLE employee_details DROP COLUMN age;
+
+
+DESC employee_details;
+
+
+ALTER TABLE employee_details ADD(age NUMBER(3));
+
+ALTER TABLE employee_details MODIFY(age NUMBER(2));
+
+
+SELECT * FROM employee_details;
+
+
+DROP TABLE employee_details;
+
+
+
+
+
+
+------Primary key----------
+
+
+CREATE TABLE employee_details(
+        employee_id NUMBER(10) PRIMARY KEY,
+        first_name VARCHAR2(20),
+        last_name VARCHAR2(20),
+        age NUMBER(3),
+        gender VARCHAR2(6),
+        salary NUMBER(10,2),
+        date_of_birth DATE
+);
+
+
+INSERT INTO employee_details values(101,'Abjali','Pandey',22,'Female',100,'05-MAR-1998');
+INSERT INTO employee_details values(101,'Abjali','Pandey',22,'Female',100,'05-MAR-1998');
+
+INSERT INTO employee_details values(null,'Anjali','Pandey',22,'Female',100,'05-MAR-1998');
+
+
+DROP TABLE employee_details;
+
+
+
+CREATE TABLE employee_details(
+        employee_id NUMBER(10),
+        first_name VARCHAR2(20),
+        last_name VARCHAR2(20),
+        age NUMBER(3),
+        gender VARCHAR2(6),
+        salary NUMBER(10,2),
+        date_of_birth DATE,
+        CONSTRAINT employee_id_pk PRIMARY KEY (employee_id)
+);
+
+
+SELECT
+    * FROM 
+    user_constraints;
+    
+    
+    DROP table employee_details;
+    
+    
+    
+    
+    ---------------------Foreign key--------------------
+    
+    CREATE TABLE project_details(
+        project_id NUMBER(10),
+        TITLE VARCHAR2(50),
+        cost NUMBER(10,2),
+        client_name VARCHAR2(50),
+        CONSTRAINT project_id_pk PRIMARY KEY(project_id)
+    );
+    
+    
+    
+    CREATE TABLE employee_details(
+        employee_id NUMBER(10),
+        first_name VARCHAR2(20),
+        last_name VARCHAR2(20),
+        age NUMBER(3),
+        gender VARCHAR2(6),
+        salary NUMBER(10,2),
+        date_of_birth DATE,
+         project_id NUMBER(10),
+        CONSTRAINT employee_id_pk PRIMARY KEY (employee_id),
+        CONSTRAINT project_id_fk FOREIGN KEY(project_id) REFERENCES project_details(project_id)
+);
+
+
+-------------------insert data into project details---------------------------
+
+
+INSERT INTO project_details VALUES (1,'Gpay',10000,'Google');
+INSERT INTO project_details VALUES (2,'Phone Pay',5000,'Phone pay tech');
+
+
+----------------------------insert employee details------------------------
+
+INSERT INTO employee_details values(101,'Anjali','Pandey',22,'Female',100,'05-MAR-1998',1);
+INSERT INTO employee_details values(102,'ANjali1','Pandey1',22,'Female',100,'05-MAR-1998',2);
+INSERT INTO employee_details values(103,'Abjali2','Pandey2',22,'Female',100,'05-MAR-1998' ,1);
+INSERT INTO employee_details values(104,'Abjali3','Pandey3',22,'Female',100,'05-MAR-1998',2);
+INSERT INTO employee_details values(105,'Abjali4','Pandey4',22,'Female',100,'05-MAR-1998',1);
+INSERT INTO employee_details values(107,'Abjali5','Pandey5',22,'Female',100,'05-MAR-1998',3);
+
+
+DROP table employee_details;
+
+DROP table project_details;
+
+
+CREATE TABLE project_details(
+        project_id NUMBER(10),
+        TITLE VARCHAR2(50),
+        cost NUMBER(10,2),
+        client_name VARCHAR2(50),
+        CONSTRAINT project_id_pk PRIMARY KEY(project_id)
+    );
+    
+    
+    CREATE TABLE employee_details(
+        employee_id NUMBER(10),
+        first_name VARCHAR2(20),
+        last_name VARCHAR2(20),
+        age NUMBER(3),
+        gender VARCHAR2(6),
+        salary NUMBER(10,2),
+        date_of_birth DATE,
+         project_id NUMBER(10),
+        CONSTRAINT employee_id_pk PRIMARY KEY (employee_id),
+        CONSTRAINT project_id_fk FOREIGN KEY(project_id) REFERENCES project_details(project_id)
+);
+
+INSERT INTO project_details VALUES (1,'Gpay',10000,'Google');
+INSERT INTO project_details VALUES (2,'Phone Pay',5000,'Phone pay tech');
+
+
+INSERT INTO employee_details values(101,'Anjali','Pandey',22,'Female',100,'05-MAR-1998',1);
+INSERT INTO employee_details values(102,'ANjali1','Pandey1',22,'Female',100,'05-MAR-1998',2);
+INSERT INTO employee_details values(103,'Abjali2','Pandey2',22,'Female',100,'05-MAR-1998' ,1);
+INSERT INTO employee_details values(104,'Abjali3','Pandey3',22,'Female',100,'05-MAR-1998',2);
+INSERT INTO employee_details values(105,'Abjali4','Pandey4',22,'Female',100,'05-MAR-1998',1);
+INSERT INTO employee_details values(107,'Abjali5','Pandey5',22,'Female',100,'05-MAR-1998',3);
+
+DROP table project_details;
+
+
+
+DROP table employee_details;
+DROP table project_details;
+
+--------------------------check constraints----------------
+
+
+
+CREATE TABLE project_details(
+        project_id NUMBER(10),
+        TITLE VARCHAR2(50),
+        cost NUMBER(10,2),
+        client_name VARCHAR2(50),
+        CONSTRAINT project_id_pk PRIMARY KEY(project_id)
+    );
+
+CREATE TABLE employee_details(
+        employee_id NUMBER(10),
+        first_name VARCHAR2(20),
+        last_name VARCHAR2(20),
+        age NUMBER(3),
+        gender VARCHAR2(6),
+        salary NUMBER(10,2),
+        date_of_birth DATE,
+         project_id NUMBER(10),
+        CONSTRAINT employee_id_pk PRIMARY KEY (employee_id),
+        CONSTRAINT project_id_fk FOREIGN KEY(project_id) REFERENCES project_details(project_id),
+        CONSTRAINT age_ck  CHECK(age >= 18)
+);
+
+INSERT INTO employee_details values(101,'Anjali','Pandey',12,'Female',100,'05-MAR-1998',1);
+
+----------------------------------NOT NULL----
+
+DROP table employee_details;
+
+
+CREATE TABLE employee_details(
+        employee_id NUMBER(10),
+        first_name VARCHAR2(20)NOT NULL,
+        last_name VARCHAR2(20) NOT NULL,
+        age NUMBER(3)NOT NULL,
+        gender VARCHAR2(6)NOT NULL,
+        salary NUMBER(10,2)NOT NULL,
+        date_of_birth DATE NOT NULL,
+         project_id NUMBER(10) NOT NULL,
+        CONSTRAINT employee_id_pk PRIMARY KEY (employee_id),
+        CONSTRAINT project_id_fk FOREIGN KEY(project_id) REFERENCES project_details(project_id),
+        CONSTRAINT age_ck  CHECK(age >= 18)
+);
+
+
+INSERT INTO employee_details values(101,NULL,'Pandey',12,'Female',100,'05-MAR-1998',1);
+
+
+DROP table employee_details;
+-----------------------------UNIQUE----------------
+
+CREATE TABLE employee_details(
+        employee_id NUMBER(10),
+        first_name VARCHAR2(20)NOT NULL,
+        last_name VARCHAR2(20) NOT NULL,
+        age NUMBER(3)NOT NULL,
+        gender VARCHAR2(6)NOT NULL,
+        salary NUMBER(10,2)NOT NULL,
+        date_of_birth DATE NOT NULL,
+         project_id NUMBER(10) NOT NULL,
+         email VARCHAR(50) NOT NULL,
+        CONSTRAINT employee_id_pk PRIMARY KEY (employee_id),
+        CONSTRAINT project_id_fk FOREIGN KEY(project_id) REFERENCES project_details(project_id),
+        CONSTRAINT age_ck  CHECK(age >= 18),
+        CONSTRAINT email_uq UNIQUE(email)
+);
+
+INSERT INTO employee_details values(101,'Anjali','Pandey',22,'Female',100,'05-MAR-1998',1,'arp@gmail.com');
+INSERT INTO employee_details values(109,'Shivam','Tripathi',24,'Male',100,'05-MAR-1998',1,'arp21@gmail.com');
+
+
+
+SELECT * FROM project_details;
+INSERT INTO project_details VALUES (1,'Gpay',10000,'Google');
+INSERT INTO project_details VALUES (2,'Phone Pay',5000,'Phone pay tech');
+
+
+INSERT INTO employee_details values(101,'Anjali','Pandey',22,'Female',100,'05-MAR-1998',1,'arp@gmail.com');
+INSERT INTO employee_details values(109,'Shivam','Tripathi',24,'Male',100,'05-MAR-1998',1,'arp@gmail.com');
+
+
+
+----------------------------------Default--------------
+
+DROP table employee_details;
+
+CREATE TABLE employee_details(
+        employee_id NUMBER(10),
+        first_name VARCHAR2(20)NOT NULL,
+        last_name VARCHAR2(20) NOT NULL,
+        age NUMBER(3)NOT NULL,
+        gender VARCHAR2(6)NOT NULL,
+        salary NUMBER(10,2)NOT NULL,
+        date_of_birth DATE NOT NULL,
+         project_id NUMBER(10) NOT NULL,
+         email VARCHAR(50) NOT NULL,
+         city VARCHAR(20) DEFAULT 'MUMBAI',
+        CONSTRAINT employee_id_pk PRIMARY KEY (employee_id),
+        CONSTRAINT project_id_fk FOREIGN KEY(project_id) REFERENCES project_details(project_id),
+        CONSTRAINT age_ck  CHECK(age >= 18),
+        CONSTRAINT email_uq UNIQUE(email)
+);
+
+INSERT INTO employee_details (employee_id,first_name,last_name,age,gender,salary,date_of_birth,project_id,email)values(101,'Anjali','Pandey',22,'Female',100,'05-MAR-1998',1,'arp@gmail.com');
+
+SELECT * FROM employee_details;
+
+
+---------------------------------------------Assignment------------------------------------------------
+
+-----------------------------TABLE1- CLIENT_MASTER ---------------------------------------------------------------------
+
+
+
+CREATE TABLE Client_master(
+    client_no VARCHAR2(6),
+    client_name VARCHAR2(20) NOT NULL,
+    address1 VARCHAR2(30),
+    address2  VARCHAR2(30),
+    city VARCHAR2(15),
+    client_state  VARCHAR2(15),
+    pincode NUMBER(6),
+    bal_due NUMBER(10,2),
+    CONSTRAINT client_no_pk PRIMARY KEY (client_no),
+    CONSTRAINT client_no_ck CHECK(client_no LIKE 'C%')
+   
+);
+INSERT INTO client_master VALUES('C101','Cheeta','ANJAHGFDRTUXGHGFSTG', 'ERTRWAQEWE 293746 99', 'BADLAPUR','MAHARASHTRA', 421503,554335.5677 );
+
+
+SELECT * FROM client_master;
+-------------------------------------------------------------------------------------------------------
+
+----------------------------TABLE2 - PRODUCT - MASTER -------------------------------------------------
+
+CREATE TABLE product_master(
+   	product_no VARCHAR2(6),
+    	description VARCHAR2(50) NOT NULL,
+    	profit_percent NUMBER(3,2) NOT NULL,
+    	unit_measure VARCHAR2(10) NOT NULL,
+    	record_lvl NUMBER(8) NOT NULL,
+    	sell_price NUMBER(8,2) NOT NULL,
+   	cost_price NUMBER(8,2) NOT NULL,
+	CONSTRAINT product_no_pk PRIMARY KEY(product_no),
+	CONSTRAINT product_no_ck CHECK(product_no LIKE 'P%'),
+	CONSTRAINT sell_price_ck CHECK(sell_price != 0),
+	CONSTRAINT cost_price_ck CHECK(cost_price != 0)	
+);
+
+INSERT INTO product_master values('Pro1','MCB',2,'qty',1,2000,1560);
+
+SELECT * FROM product_master;
+
+--------------------------------------TABLE3------------------------------------------------------------
+
+ CREATE TABLE salesman_master(
+   	salesman_no VARCHAR2(6),
+    	salesman_name VARCHAR2(20) NOT NULL,
+    	Address1 VARCHAR2(30) NOT NULL,
+    	Address2 VARCHAR2(30),
+    	city VARCHAR2(20),
+	pincode VARCHAR2(6),
+	state VARCHAR2(20),
+    	sal_amt NUMBER(8,2) NOT NULL,
+   	try_to_get NUMBER(6,2) NOT NULL,
+	ytd_sales NUMBER(6,2) NOT NULL,
+	remarks VARCHAR2(60),
+	CONSTRAINT salesman_no_pk PRIMARY KEY(salesman_no),
+	CONSTRAINT salesman_no_ck CHECK(salesman_no LIKE 'S%'),
+	CONSTRAINT sal_amt_ck CHECK(sal_amt != 0),
+	CONSTRAINT try_to_get_ck CHECK(try_to_get != 0)	
+);
+
+INSERT INTO salesman_master values('S21','Raj','Lane 1','Lane 2','Mumbai','564342','Maharashtra',546238,32,34,'Good');
+
+SELECT * FROM  salesman_master;
+------------------------------------------------------------------------------------------------
+-------------------------------------TABLE4-----------------------------------------------------------
+CREATE TABLE sales_order(
+    s_order_no VARCHAR2(6),
+    s_order_DATE DATE,
+    client_no VARCHAR2(6),
+    dely_addr VARCHAR2(25),
+    salesman_no VARCHAR2(6),
+    dely_type CHAR(1) DEFAULT 'F',
+    billed_yn CHAR(1)  DEFAULT 'N',
+    dely_date DATE,
+    order_status VARCHAR2(10),
+    
+    CONSTRAINT s_order_no_pk PRIMARY KEY(s_order_no),
+    CONSTRAINT s_order_no_ck CHECK(s_order_no LIKE 'O%'),
+    CONSTRAINT client_no_fk FOREIGN KEY(client_no) REFERENCES Client_master(client_no),
+    CONSTRAINT salesman_no_fk FOREIGN KEY(salesman_no) REFERENCES salesman_master(salesman_no),
+    CONSTRAINT dely_type_ck CHECK (dely_type  IN('P','F')),
+    CONSTRAINT billed_yn CHECK (billed_yn IN('Y','N')), 
+    CONSTRAINT dely_date_ck CHECK (dely_date>s_order_DATE),
+    CONSTRAINT order_status_CK CHECK(order_status IN ('In Process','FulFilled','BackOrder','Cancelled'))
+   
+);
+
+INSERT INTO sales_order VALUES('O001', '01-JAN-2021', 'C101','QWEHIBVYNEFYBW 7366HNHY V','S21','P','Y','21-DEC-2022','Cancelled' );
+
+select * from sales_order;
+
+INSERT INTO sales_order (s_order_no,s_order_DATE,client_no,dely_addr,salesman_no,dely_type,billed_yn,dely_date,order_status) VALUES('O001', '01-JAN-2021', 'C101','QWEHIBVYNEFYBW 7366HNHY V','S21','21-DEC-2022','Cancelled');
+
+---------------------------------------------------------------------------------------------------------
+
+----------------------------------------TABLE5-----------------------------------------------------
+
+----SALES ORDER DETAILED TABLE---------------------------
+
+CREATE TABLE sales_order_deatils(
+    s_order_no VARCHAR2(6),
+    product_no VARCHAR2(6),
+    qty_ordered NUMBER(8),
+    qty_disp NUMBER(8),
+    product_rate NUMBER(10,2),
+    
+    constraint s_order_no_fk FOREIGN KEY (s_order_no) REFERENCES sales_order(s_order_no),
+    constraint product_no_fk FOREIGN KEY (product_no) REFERENCES product_master(product_no)
+);
+
+SELECT * FROM sales_order_deatils;
+
+------------------------------------------------------------------------------------------------------
+
+--------------------------------------------TABLE6-----------------------------------------------------------
+CREATE TABLE Challan_Header(
+	challan_no VARCHAR2(6),
+	s_order_no VARCHAR2(6),
+	challan_date DATE NOT NULL,
+	billed_yn CHAR(1),
+	CONSTRAINT challan_no1_pk PRIMARY KEY (challan_no),
+	CONSTRAINT challan_no1_ck CHECK (challan_no LIKE 'CH%'),
+	CONSTRAINT s_order_no1_fk FOREIGN KEY(s_order_no) REFERENCES sales_order(s_order_no),  
+	CONSTRAINT billed_yn_ck CHECK (billed_yn IN('Y','N'))
+);
+
+
+
+--------------------------------------------------------------------------------------------------
+---------------------------------TABLE7----------------------------------------------------
+
+CREATE TABLE Challan_details(
+    challan_no VARCHAR2(6),
+    product_no VARCHAR2(6),
+    qty_disp NUMBER(4,2) NOT NULL,
+    
+    CONSTRAINT challan_no2_fk FOREIGN KEY(challan_no)REFERENCES challan_header(challan_no),
+    CONSTRAINT product_no2_fk FOREIGN KEY(product_no)REFERENCES product_master(product_no)
+);
+
+
+
+===============================================================================================================
+
+INSERTING DATA
+
+===================================================================================================================
+
+
+client_no VARCHAR2(6),
+    client_name VARCHAR2(20) NOT NULL,
+    address1 VARCHAR2(30)NULL,
+    address2  VARCHAR2(30) NULL,
+    city VARCHAR2(15),
+    client_state  VARCHAR2(15),
+    pincode NUMBER(6),
+    bal_due NUMBER(10,2),
+    CONSTRAINT client_no_pk PRIMARY KEY (client_no),
+    CONSTRAINT client_no_ck CHECK(client_no LIKE 'C%')
+);
+
+
+CREATE TABLE Client_master(
+    client_no VARCHAR2(6),
+    client_name VARCHAR2(20) NOT NULL,
+    address1 VARCHAR2(30),
+    address2  VARCHAR2(30),
+    city VARCHAR2(15),
+    client_state  VARCHAR2(15),
+    pincode NUMBER(6),
+    bal_due NUMBER(10,2),
+    CONSTRAINT client_no_pk PRIMARY KEY (client_no),
+    CONSTRAINT client_no_ck CHECK(client_no LIKE 'C%')
+   
+);
+
+DROP TABLE Client_master;
+
+CREATE TABLE Client_master(
+    client_no VARCHAR2(6),
+    client_name VARCHAR2(20) NOT NULL,
+    address1 VARCHAR2(30),
+    address2  VARCHAR2(30),
+    city VARCHAR2(15),
+    client_state  VARCHAR2(15),
+    pincode NUMBER(6),
+    bal_due NUMBER(10,2),
+    CONSTRAINT client_no_pk PRIMARY KEY (client_no),
+    CONSTRAINT client_no_ck CHECK(client_no LIKE 'C%')
+   
+);
+
+
+INSERT INTO Client_master (client_no,client_name,address1,address2,city,client_state,pincode,bal_due) 
+VALUES('C00001','Ivan Bayross' ,'Bombay',400054,'Maharashtra',15000);
+
+
+INSERT INTO Client_master values('C00001','IVAN BAYROSS','ASALPHA','GHATKOPAR','BOMBAY','MAHARASHTRA',400054,15000);
+INSERT INTO Client_master values('C00002','VANDANA SAITWAL','HEBBAL','KARNATAKA','MADRAS','TAMIL NADU',780001,0);
+INSERT INTO Client_master values('C00003','PRAMADA JAGUSTE','SAKINAKA','ANDHERI','BOMBAY','MAHARASHTRA',400057,5000);
+INSERT INTO Client_master values('C00004','BASU NAVINDGI','GANDHI NAGAR','KANJURMARG','BOMBAY','MAHARASHTRA',400056,0);
+INSERT INTO Client_master values('C00005','RAVI SREEDHARAN','MAHARANI','BAUG','DELHI','DELHI',100001,2000);
+INSERT INTO Client_master values('C00006','RUKMINI','SONAPUR','BHANDUP','BOMBAY','MAHARASHTRA',400050,0);
+
+SELECT * FROM Client_master;
+
+INSERT INTO Client_master values('C00007','RUKMINI',NULL,NULL,'BOMBAY','MAHARASHTRA',400050,0);
+
+
+
+
+
+
+-- a. Use to store information about client
+CREATE TABLE Client_master(
+        client_no VARCHAR2(6),
+        name VARCHAR2(20) NOT NULL,
+        address1 VARCHAR2(30),
+        address2 VARCHAR2(30),
+        city VARCHAR2(15),
+        state VARCHAR(15),
+        pincode NUMBER(6),
+        bal_due NUMBER(10,2),
+        CONSTRAINT client_no_pk PRIMARY KEY(client_no),
+        CONSTRAINT client_no_ch CHECK(client_no LIKE 'C%')
+);
+
+INSERT INTO Client_master values('C00001','IVAN BAYROSS','ASALPHA','GHATKOPAR','BOMBAY','MAHARASHTRA',400054,15000);
+INSERT INTO Client_master values('C00002','VANDANA SAITWAL','HEBBAL','KARNATAKA','MADRAS','TAMIL NADU',780001,0);
+INSERT INTO Client_master values('C00003','PRAMADA JAGUSTE','SAKINAKA','ANDHERI','BOMBAY','MAHARASHTRA',400057,5000);
+INSERT INTO Client_master values('C00004','BASU NAVINDGI','GANDHI NAGAR','KANJURMARG','BOMBAY','MAHARASHTRA',400056,0);
+INSERT INTO Client_master values('C00005','RAVI SREEDHARAN','MAHARANI','BAUG','DELHI','DELHI',100001,2000);
+INSERT INTO Client_master values('C00006','RUKMINI','SONAPUR','BHANDUP','BOMBAY','MAHARASHTRA',400050,0);
+
+SELECT * FROM Client_master;
+
+-- b. Use to store information about products
+CREATE TABLE product_master(
+        product_no VARCHAR2(6),
+        description VARCHAR(50) NOT NULL,
+        project_percent NUMBER(3,2) NOT NULL,
+        unit_measure VARCHAR2(10) NOT NULL,
+        record_lvl NUMBER(8) NOT NULL,
+        sell_price NUMBER(8,2) NOT NULL,
+        cost_price NUMBER(8,2) NOT NULL,
+        CONSTRAINT product_no_pk PRIMARY KEY(product_no),
+        CONSTRAINT product_no_ck CHECK(product_no LIKE 'P%'),
+        CONSTRAINT sell_price_ck CHECK(sell_price != 0),
+        CONSTRAINT cost_price_ck CHECK(cost_price != 0)
+);
+
+INSERT INTO product_master values('P00001','1.44 FLOPPIES',5,'PIECE',20,525,500);
+INSERT INTO product_master values('P03453','MONITORS',6,'PIECE',3,12000,11280);
+INSERT INTO product_master values('P06734','MOUSE',5,'PIECE',5,1050,1000);
+INSERT INTO product_master values('P07865','1.22 FLOPPIES',5,'PIECE',20,525,500);
+INSERT INTO product_master values('P07868','KEYBOARDS',3,'PIECE',20,3150,3050);
+INSERT INTO product_master values('P07885','CD DRIVE',2.5,'PIECE',3,5250,5100);
+INSERT INTO product_master values('P07965','540 HDD',4,'PIECE',3,8400,8000);
+INSERT INTO product_master values('P07975','1.44 DRIVE',5,'PIECE',3,1050,1000);
+INSERT INTO product_master values('P08865','1.22 DRIVE',5,'PIECE',3,1050,1000);
+
+SELECT * FROM product_master;
+
+-- c. Use to store information about salesman working in the company
+CREATE TABLE salesman_master(
+        salesman_no VARCHAR2(6),
+        salesman_name VARCHAR(20) NOT NULL,
+        address1 VARCHAR2(30) NOT NULL,
+        address2 VARCHAR2(30),
+        city VARCHAR2(20),
+        pincode VARCHAR2(6),
+        state VARCHAR2(20),
+        sal_amt NUMBER(8,2) NOT NULL,
+        tgt_to_get NUMBER(6,2) NOT NULL,
+        ytd_sales NUMBER(6,2) NOT NULL,
+        remarks VARCHAR2(60),
+        CONSTRAINT salesman_no_pk PRIMARY KEY(salesman_no),
+        CONSTRAINT salesman_no_ck CHECK(salesman_no LIKE 'S%'),
+        CONSTRAINT sal_amt_ck CHECK(sal_amt != 0),
+        CONSTRAINT tgt_to_get_ck CHECK(tgt_to_get != 0)
+); 
+
+INSERT INTO salesman_master values('S00001','KIRAN','A/14','WORLI','BOMBAY',400002,'MAH',3000,100,50,'GOOD');
+INSERT INTO salesman_master values('S00002','MANISH','65','NARIMAN','BOMBAY',400001,'MAH',3000,200,100,'GOOD');
+INSERT INTO salesman_master values('S00003','RAVI','P-7','BANDRA','BOMBAY',400032,'MAH',3000,200,100,'GOOD');
+INSERT INTO salesman_master values('S00004','ASHISH','A/5','JUHU','BOMBAY',400044,'MAH',3500,200,150,'GOOD');
+
+SELECT * FROM salesman_master;
+
+-- d. Use to store information about order
+CREATE TABLE sales_order(
+        s_order_no VARCHAR2(6),
+        s_order_date DATE,
+        client_no VARCHAR2(6),
+        dely_addr VARCHAR2(25),
+        salesman_no VARCHAR2(6),
+        dely_type CHAR(1) DEFAULT 'F',
+        billed_yn CHAR(1) DEFAULT 'N',
+        dely_date DATE,
+        order_status VARCHAR2(10),
+        CONSTRAINT s_order_no_pk PRIMARY KEY(s_order_no),
+        CONSTRAINT s_order_no_ck CHECK(s_order_no LIKE '0%'),
+        CONSTRAINT client_no_fk FOREIGN KEY(client_no) REFERENCES Client_master(client_no),
+        CONSTRAINT salesman_no_fk FOREIGN KEY(salesman_no) REFERENCES salesman_master(salesman_no),
+        CONSTRAINT dely_type_ck CHECK(dely_type IN ('P','F')),
+        CONSTRAINT billed_yn_ck CHECK(billed_yn IN ('Y','N')),
+        CONSTRAINT dely_date_ck CHECK(dely_date > s_order_date),
+        CONSTRAINT order_status_ck CHECK(order_status IN ('IN PROCESS','FULFILLED','BACK ORDER','CANCELLED'))
+);
+
+-- e. Use to store information about products ordered
+CREATE TABLE sales_order_details(
+        s_order_no VARCHAR2(6),
+        product_no VARCHAR2(6),
+        qty_ordered NUMBER(8),
+        qty_disp NUMBER(8),
+        product_rate NUMBER(10,2),
+        CONSTRAINT s_order_no_fk FOREIGN KEY(s_order_no) REFERENCES sales_order(s_order_no),
+        CONSTRAINT product_no_fk FOREIGN KEY(product_no) REFERENCES product_master(product_no)
+);
+
+-- f. Use to store information about challans made for the orders
+CREATE TABLE Challan_header(
+        challan_no VARCHAR2(6),
+        s_order_no VARCHAR2(6),
+        challan_date DATE NOT NULL,
+        billed_yn CHAR(1) DEFAULT 'N',
+        CONSTRAINT challan_no_pok PRIMARY KEY(challan_no),
+        CONSTRAINT challan_no_cok CHECK(challan_no LIKE 'CH%'),
+        CONSTRAINT s_order_no_fok FOREIGN KEY(s_order_no) REFERENCES sales_order(s_order_no),
+        CONSTRAINT billed_yn_cnk CHECK(billed_yn IN ('Y','N'))
+);
+
+-- g. Use to store information about challan details
+CREATE TABLE Challan_details(
+        challan_no VARCHAR2(6),
+        product_no VARCHAR2(6),
+        qty_disp NUMBER(4,2) NOT NULL,
+        CONSTRAINT challan_no_pkey PRIMARY KEY(challan_no,product_no),
+        CONSTRAINT challan_no_fkey FOREIGN KEY(challan_no) REFERENCES Challan_header(challan_no),
+        CONSTRAINT product_no_skey FOREIGN KEY(product_no) REFERENCES product_master(product_no)
+);
+
